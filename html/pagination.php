@@ -1,9 +1,9 @@
 <?php
 /**
  * @package     Joomla.Administrator
- * @subpackage  Templates.protostar
+ * @subpackage  Template.AppTheme-Admin
  *
- * @copyright   Copyright (C) 2005 - 2012 Open Source Matters, Inc. All rights reserved.
+ * @copyright   Copyright (C) 2005 - 2013 Open Source Matters, Inc. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
  */
 
@@ -70,7 +70,7 @@ defined('_JEXEC') or die;
  */
 function pagination_list_footer($list)
 {
-	$html = "<div class=\"pagination\">\n";
+	$html = "<div class=\"pagination pagination-toolbar\">\n";
 	$html .= $list['pageslinks'];
 	$html .= "\n<input type=\"hidden\" name=\"" . $list['prefix'] . "limitstart\" value=\"" . $list['limitstart'] . "\" />";
 	$html .= "\n</div>";
@@ -116,7 +116,7 @@ function pagination_list_render($list)
 	$html .= $list['start']['data'];
 	$html .= $list['previous']['data'];
 
-	foreach($list['pages'] as $k => $page)
+	foreach ($list['pages'] as $k => $page)
 	{
 		if (in_array($k, range($range * $step - ($step + 1), $range * $step)))
 		{
@@ -177,7 +177,16 @@ function pagination_item_active(&$item)
 		$display = $item->text;
 	}
 
-	return "<li><a title=\"" . $item->text . "\" href=\"" . $item->link . "\" class=\"pagenav\">" . $item->text . "</a><li>";
+	if ($item->base > 0)
+	{
+		$limit = 'limitstart.value=' . $item->base;
+	}
+	else
+	{
+		$limit = 'limitstart.value=0';
+	}
+
+	return '<li><a href="#" title="' . $item->text . '" onclick="document.adminForm.' . $item->prefix . $limit . '; Joomla.submitform();return false;">' . $display . '</a></li>';
 }
 
 /**
