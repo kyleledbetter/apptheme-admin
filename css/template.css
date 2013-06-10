@@ -473,6 +473,10 @@ a:hover {
 .container .navigation .nav-pills > li > a {
   padding: 6px 10px;
   margin-right: 4px;
+  -webkit-transition: background 0.5s ease-in-out;
+  -moz-transition: background 0.5s ease-in-out;
+  -o-transition: background 0.5s ease-in-out;
+  transition: background 0.5s ease-in-out;
 }
 .container .navigation .nav-pills .open > ul > li > .dropdown-toggle {
   background-color: transparent;
@@ -480,6 +484,11 @@ a:hover {
 }
 .container .navigation .nav-pills .open > ul > li > .dropdown-toggle:hover {
   color: #ffffff;
+}
+.container .navigation .pull-right > li > .dropdown-menu,
+.container .navigation .nav > li > .dropdown-menu.pull-right {
+  right: 0;
+  left: auto;
 }
 .container .sidebar,
 .container .sidebar-nav {
@@ -527,6 +536,10 @@ a:hover {
   padding: 4px 10px;
   margin-left: -10px;
   margin-right: -10px;
+  -webkit-transition: background 0.5s ease-in-out;
+  -moz-transition: background 0.5s ease-in-out;
+  -o-transition: background 0.5s ease-in-out;
+  transition: background 0.5s ease-in-out;
 }
 .container .sidebar ul > li > a:hover,
 .container .sidebar-nav ul > li > a:hover {
@@ -6582,6 +6595,10 @@ dl.tabs:after {
 .container-fixed .navigation .nav-pills > li > a {
   padding: 6px 10px;
   margin-right: 4px;
+  -webkit-transition: background 0.5s ease-in-out;
+  -moz-transition: background 0.5s ease-in-out;
+  -o-transition: background 0.5s ease-in-out;
+  transition: background 0.5s ease-in-out;
 }
 .container-fixed .navigation .nav-pills .open > ul > li > .dropdown-toggle {
   background-color: transparent;
@@ -6589,6 +6606,11 @@ dl.tabs:after {
 }
 .container-fixed .navigation .nav-pills .open > ul > li > .dropdown-toggle:hover {
   color: #ffffff;
+}
+.container-fixed .navigation .pull-right > li > .dropdown-menu,
+.container-fixed .navigation .nav > li > .dropdown-menu.pull-right {
+  right: 0;
+  left: auto;
 }
 .container-fixed .sidebar,
 .container-fixed .sidebar-nav {
@@ -6636,6 +6658,10 @@ dl.tabs:after {
   padding: 4px 10px;
   margin-left: -10px;
   margin-right: -10px;
+  -webkit-transition: background 0.5s ease-in-out;
+  -moz-transition: background 0.5s ease-in-out;
+  -o-transition: background 0.5s ease-in-out;
+  transition: background 0.5s ease-in-out;
 }
 .container-fixed .sidebar ul > li > a:hover,
 .container-fixed .sidebar-nav ul > li > a:hover {
@@ -9222,6 +9248,37 @@ dl.tabs:after {
 .has-context .btn-group .btn-mini {
   padding: 0 2px;
   line-height: 5px;
+}
+table .btn-micro.active {
+  color: #ffffff;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+  background-color: #16a085;
+  background-image: -moz-linear-gradient(top, #16a085, #16a085);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#16a085), to(#16a085));
+  background-image: -webkit-linear-gradient(top, #16a085, #16a085);
+  background-image: -o-linear-gradient(top, #16a085, #16a085);
+  background-image: linear-gradient(to bottom, #16a085, #16a085);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff16a085', endColorstr='#ff16a085', GradientType=0);
+  border-color: #16a085 #16a085 #0d5d4d;
+  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+  *background-color: #16a085;
+  /* Darken IE7 buttons by default so they stand out more given they won't have borders */
+
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+}
+table .btn-micro.active:hover,
+table .btn-micro.active:active,
+table .btn-micro.active.active,
+table .btn-micro.active.disabled,
+table .btn-micro.active[disabled] {
+  color: #ffffff;
+  background-color: #16a085;
+  *background-color: #138a72;
+}
+table .btn-micro.active:active,
+table .btn-micro.active.active {
+  background-color: #107360 \9;
 }
 @media (max-width: 1024px) {
   .container-fixed .content-inner #j-sidebar-container {

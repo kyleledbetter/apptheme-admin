@@ -115,6 +115,7 @@ dl.tabs {
 		.nav-pills > li > a {
 			padding: 6px 10px;
 			margin-right: 4px;
+			.transition (background 0.5s ease-in-out);
 		}
 		.nav-pills .open > ul > li > .dropdown-toggle {
 			background-color: transparent;
@@ -122,6 +123,11 @@ dl.tabs {
 		}
 		.nav-pills .open > ul > li > .dropdown-toggle:hover {
 			color: @white;
+		}
+		.pull-right > li > .dropdown-menu,
+		.nav > li > .dropdown-menu.pull-right {
+			right: 0;
+			left: auto;
 		}
 	}
 	.sidebar,.sidebar-nav {
@@ -163,6 +169,8 @@ dl.tabs {
 			padding: 4px 10px;
 			margin-left: -10px;
 			margin-right: -10px;
+			.transition (background 0.5s ease-in-out);
+
 			&:hover {
 				text-decoration: none;
 			}
