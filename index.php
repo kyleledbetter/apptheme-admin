@@ -79,6 +79,10 @@ if ($this->params->get('logoFile'))
 {
 	$logo = '<img src="'. JURI::root() . $this->params->get('logoFile') .'" alt="'. $sitename .'" />';
 }
+else if ($this->params->get('theme') == "flat")
+{
+	$logo = '<img src="'. JURI::root() .'administrator/templates/' .$this->template. '/images/logo-flat.png" alt="'. $sitename .'" />';
+}
 else if ($this->params->get('theme') == "carbon" || $this->params->get('theme') == "sepia" || $this->params->get('theme') == "ironman" || $this->params->get('theme') == "masterchief")
 {
 	$logo = '<img src="'. JURI::root() .'administrator/templates/' .$this->template. '/images/logo-inverse.png" alt="'. $sitename .'" />';
@@ -102,6 +106,15 @@ else
 	<?php if ($this->params->get('theme') == "masterchief"): ?>
 		<link href='http://fonts.googleapis.com/css?family=Share+Tech' rel='stylesheet' type='text/css'>
 	<?php endif; ?>
+	<?php if ($this->params->get('theme') == "flat"): ?>
+		<link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+		<style type="text/css">
+			.flat .navigation, .flat .breadcrumb, .flat .page-title, .flat .footer
+			{
+				background: <?php echo $this->params->get('templateColor'); ?>;
+			}
+		</style>
+	<?php endif; ?>
 </head>
 
 <body class="<?php echo $this->params->get('theme', 'mac'); ?> site <?php echo $option . " view-" . $view . " layout-" . $layout . " task-" . $task . " itemid-" . $itemid . " ";?>">
@@ -114,7 +127,7 @@ else
 					<jdoc:include type="modules" name="search" style="none" />
 				</div>
 				<a class="brand pull-left" href="<?php echo $this->baseurl; ?>">
-						<?php echo $logo;?> 
+						<?php echo $logo;?>
 					</a>
 				<jdoc:include type="modules" name="menu" style="none" />
 			</div>
@@ -123,11 +136,11 @@ else
 				<!-- Begin Sidebar -->
 				<div id="sidebar" class="sidebar">
 					<a class="btn btn-small btn-inverse pull-right sidebar-toggle visible-phone" href="#"><span aria-hidden="true" class="icon-remove"></span></a>
-					<div class="sidebar-nav tablet-nav">
+					<div class="sidebar- tablet-nav">
 						<h3><?php echo JHtml::_('string.truncate', $sitename, 20, false, false);?></h3>
 						<jdoc:include type="modules" name="menu" style="none" />
 					</div>
-					<div class="sidebar-nav">
+					<div class="sidebar-">
 						<div class="moduletable">
 							<h3>Submenu</h3>
 							<jdoc:include type="modules" name="submenu" style="none" />
@@ -135,12 +148,11 @@ else
 							<div id="sidebar-replace2"></div>
 						</div>
 					</div>
-					
 				</div>
 				<!-- End Sidebar -->
 				<div id="content" class="content">
 					<div class="page-title center">
-						<a class="btn <?php if ($this->params->get('theme') == "carbon" || $this->params->get('theme') == "sepia" || $this->params->get('theme') == "ironman" || $this->params->get('theme') == "masterchief") { echo "btn-inverse"; } ?> pull-left sidebar-toggle visible-phone" href="#"><span aria-hidden="true" class="icon-list-view"></span></a>
+						<a class="btn <?php if ($this->params->get('theme') == "carbon" || $this->params->get('theme') == "sepia" || $this->params->get('theme') == "ironman" || $this->params->get('theme') == "masterchief" || $this->params->get('theme') == "flat") { echo "btn-inverse"; } ?> pull-left sidebar-toggle visible-phone" href="#"><span aria-hidden="true" class="icon-list-view"></span></a>
 						<div class="btn-group pull-right title-nav">
 							<a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#"><span aria-hidden="true" class="icon-pencil"></span></a>
 							<ul class="dropdown-menu">
@@ -164,7 +176,7 @@ else
 								<?php } ?>
 								<?php if($user->authorise('core.manage', 'com_installer')) { ?>
 									<li><a href="index.php?option=com_installer"><?php echo JText::_( 'TPL_APPTHEME_NEW_EXTENSION' )?></a></li>
-								 <?php } ?> 
+								 <?php } ?>
 							</ul>
 						</div>
 						<?php if ($this->countModules('title-nav')) : ?>
@@ -221,8 +233,10 @@ else
 			// Add pills class to top nav
 			$("#menu.nav").addClass("nav-pills");
 			// Replace inner sidebar with outer
+			/*
 			$('#sidebar-replace').replaceWith($('#j-sidebar-container #submenu'));
 			$('#sidebar-replace2').replaceWith($('.com_config .span2 .sidebar-nav'));
+			*/
 			$("#sidebar .nav.nav-list").removeClass("nav-list");
 			$("#sidebar .nav .active").addClass("current");
 			// Sidebar Toggle H3
@@ -240,7 +254,7 @@ else
 			$(".tablet-nav ul").removeClass("nav-pills");
 			// Remove pills class from sidebar title nav
 			$(".title-nav ul").removeClass("nav-pills").removeClass("nav").removeClass("menu").addClass("dropdown-menu");
-			
+
 			// Turn radios into btn-group
 		    $('.radio.btn-group label').addClass('btn');
 		    $(".btn-group label:not(.active)").click(function() {

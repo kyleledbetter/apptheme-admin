@@ -9,7 +9,7 @@
 		position: fixed;
 		left: 38%;
 		top: 15%;
-		
+
 		.btn-group.pull-left {
 			float: none;
 			width: 100%;
@@ -54,6 +54,8 @@
 	}
 	.navigation {
 		z-index: 3;
+
+
 	}
 	.navigation-status {
 		margin: 12px 0 0 12px;
@@ -73,10 +75,47 @@
 			font-weight: bold;
 		}
 	}
+	.sidebar-nav {
+		top: 76px;
+		bottom: 43px;
+
+		hr {
+			background: transparent;
+			border-top: 0;
+			border-bottom: 0;
+		}
+
+		.nav-list > li {
+			margin-left: -15px;
+			margin-right: -15px;
+		}
+
+		.page-header {
+			border-bottom: 0;
+		}
+	}
+	#j-sidebar-container {
+		width: 0;
+	}
+	#j-main-container {
+		width: 100%;
+		margin-left: 0;
+
+	}
 }
 .com_config .content-inner .row-fluid > .span10 {
 	width: 100%;
 	margin-left: 0;
+}
+// Fix the content menu
+.has-context {
+	.btn-group {
+		display: inline-block !important;
+		.btn-mini {
+			padding: 0 2px;
+			line-height: 5px;
+		}
+	}
 }
 @media (max-width: @tabletMax) {
 	.container-fixed {
@@ -96,12 +135,23 @@
 				background: transparent;
 				.box-shadow (none);
 				border: 0;
-				
+
 				.divider,
 				.dropdown-menu,
 				.dropdown-submenu > a::after  {
 					display: none;
 				}
+			}
+			.sidebar-nav {
+				display: block;
+				position: relative;
+				top: 0;
+				left: 0;
+				bottom: 0;
+				width: auto;
+				background: transparent;
+				border: 0;
+				margin: -9px;
 			}
 		}
 	}
@@ -130,10 +180,10 @@
 	background: -ms-linear-gradient(-45deg,  #a90329 0%,#8f0222 28%,#a90329 55%,#6d0019 100%); /* IE10+ */
 	background: linear-gradient(135deg,  #a90329 0%,#8f0222 28%,#a90329 55%,#6d0019 100%); /* W3C */
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a90329', endColorstr='#6d0019',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
-	
-	
+
+
 	background-attachment: fixed;
-	
+
 }
 .dribbble.view-login{
 	#gradient > .radial(lighten(@dribbbleFooter, 20%), lighten(@dribbbleFooter, 10%));
