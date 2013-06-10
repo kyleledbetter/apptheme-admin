@@ -41,6 +41,10 @@ if ($this->params->get('logoFile'))
 {
 	$logo = '<img src="'. JURI::root() . $this->params->get('logoFile') .'" alt="'. $sitename .'" />';
 }
+else if ($this->params->get('theme') == "flat")
+{
+	$logo = '<img src="'. JURI::root() .'administrator/templates/' .$this->template. '/images/logo-flat.png" alt="'. $sitename .'" />';
+}
 else if ($this->params->get('theme') == "mac" || $this->params->get('theme') == "carbon" || $this->params->get('theme') == "sepia" || $this->params->get('theme') == "ironman" || $this->params->get('theme') == "masterchief")
 {
 	$logo = '<img src="'. JURI::root() .'administrator/templates/' .$this->template. '/images/logo-inverse.png" alt="'. $sitename .'" />';
