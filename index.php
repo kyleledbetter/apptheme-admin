@@ -123,6 +123,15 @@ else
 		<div class="container-fixed">
 			<?php if ($this->params->get('navigation', 1)): ?>
 			<div class="navigation">
+				<ul class="nav nav-pills pull-right">
+					<li class="dropdown"> <a class="dropdown-toggle" data-toggle="dropdown" href="#"><?php echo $user->name; ?> <b class="caret"></b></a>
+						<ul class="dropdown-menu">
+							<li class=""><a href="index.php?option=com_admin&task=profile.edit&id=<?php echo $user->id;?>"><?php echo JText::_('TPL_APPTHEME_EDIT_ACCOUNT');?></a></li>
+							<li class="divider"></li>
+							<li class=""><a href="<?php echo JRoute::_('index.php?option=com_login&task=logout&'. JSession::getFormToken() .'=1');?>"><?php echo JText::_('TPL_APPTHEME_LOGOUT');?></a></li>
+						</ul>
+					</li>
+				</ul>
 				<div class="search pull-right">
 					<jdoc:include type="modules" name="search" style="none" />
 				</div>
